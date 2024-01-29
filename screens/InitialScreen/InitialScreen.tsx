@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, SafeAreaView, TouchableOpacity, View } from 'react-native';
+import { FlatList, ImageSourcePropType, SafeAreaView, TouchableOpacity, View } from 'react-native';
 import { useQuery } from '@apollo/client';
 
 import { SittersData } from './InitialScreen.types';
@@ -43,7 +43,7 @@ export const InitialScreen: React.FC = () => {
               <ExtendedText preset="fs24">No sitters available</ExtendedText>
             }
             renderItem={({ item: sitter }) => (
-              <SitterItem name={sitter.firstName} rank={sitter.yearsActive} />
+              <SitterItem name={sitter.firstName} rank={sitter.yearsActive} image={sitter.profilePhotoURL} />
             )}
           />
         </View>
