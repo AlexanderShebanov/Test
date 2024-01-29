@@ -10,7 +10,7 @@ export const SitterItem: React.FC<ISitterItemProps> = ({
   image,
 }) => {
   return (
-    <View style={generalStyles.row}>
+    <View style={[generalStyles.row, styles.commonSitterView]}>
       <View style={generalStyles.centered}>
         <Image style={styles.sitterPhoto} source={{ uri: image }} />
       </View>

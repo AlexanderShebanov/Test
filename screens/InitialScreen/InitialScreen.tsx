@@ -27,6 +27,10 @@ export const InitialScreen: React.FC = () => {
     setSelectedRank(rank);
   };
 
+  const renderItemSeparator = (
+    () => <View style={styles.itemSeparator} />
+  );
+
   return (
     <SafeAreaView style={generalStyles.flex}>
       <Header />
@@ -42,6 +46,7 @@ export const InitialScreen: React.FC = () => {
             ListEmptyComponent={
               <ExtendedText preset="fs24">No sitters available</ExtendedText>
             }
+            ItemSeparatorComponent={renderItemSeparator}
             renderItem={({ item: sitter }) => (
               <SitterItem name={sitter.firstName} rank={sitter.yearsActive} image={sitter.profilePhotoURL} />
             )}
