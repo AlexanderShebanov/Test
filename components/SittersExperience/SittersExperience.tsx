@@ -6,21 +6,30 @@ import { styles } from './SittersExperience.styles';
 import { ISittersExperienceProps } from './SittersExperience.types';
 import { generalStyles } from '../../utils/generalStyles';
 
-export const SittersExperience: React.FC<ISittersExperienceProps> = ({ selectedRank, handleRankPress }) => {
+export const SittersExperience: React.FC<ISittersExperienceProps> = ({
+  selectedRank,
+  handleRankPress,
+}) => {
   const minExperience = 1;
   const maxExperience = 10;
 
   return (
     <View style={styles.sittersExpirienceContainer}>
       <View style={generalStyles.centered}>
-        <ExtendedText preset='fs24'>Current rank: {selectedRank}</ExtendedText>
+        {selectedRank ? (
+          <ExtendedText preset="fs24">
+            Current rank: {selectedRank}
+          </ExtendedText>
+        ) : (
+          <ExtendedText preset="fs24">Select the rank</ExtendedText>
+        )}
       </View>
       <Slider
         style={{ width: '80%', alignSelf: 'center' }}
         minimumValue={minExperience}
         maximumValue={maxExperience}
         step={1}
-        value={selectedRank || maxExperience}
+        value={selectedRank || minExperience}
         minimumTrackTintColor="#2C3E50"
         maximumTrackTintColor="#ecf0f1"
         thumbTintColor="#2C3E50"
